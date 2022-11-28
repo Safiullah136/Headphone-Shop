@@ -6,7 +6,7 @@ const ProductItem = (props) => {
 
   return (
     <div>
-      <Link href={`/product/${slug.current}`}>
+      <Link href={`/products/${slug.current}`}>
         <div className="product-card">
           <img 
             src={urlFor(image && image[0])}

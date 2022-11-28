@@ -12,6 +12,7 @@ const FooterBanner = (props) => {
     buttonText,
     image,
     desc,
+    product
   } = props.bannerData;
 
   return (
@@ -27,7 +28,7 @@ const FooterBanner = (props) => {
           <p>{smallText}</p>
           <h3>{midText}</h3>
           <p>{desc}</p>
-          <Link href={`/product`}>
+          <Link href={`/products/${product}`}>
             <button>{buttonText}</button>
           </Link>
         </div>
