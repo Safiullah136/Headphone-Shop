@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }) {
       <Layout>
         <Head>
           <title>MS Headphones Store</title>
-          <meta name="viewport" content="width=device-width, initial-scale=0.75" />
+          <meta name="viewport" content="width=device-width" />
           <meta
             name="description"
             content="Buy Headphone, Speaker from number one selling store"
