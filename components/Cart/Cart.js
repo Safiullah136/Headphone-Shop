@@ -1,4 +1,3 @@
-import styles from "./Cart.module.css";
 import { Close, Minus, Plus, RemoveItemButton, ShoppingBag } from "../Icons";
 import { useContext, useState } from "react";
 import CartContext from "../../store/cart-context";
@@ -47,7 +46,7 @@ const Cart = () => {
   };
 
   const emptyCart = cartItems.length < 1 && (
-    <div className={styles["empty-cart"]}>
+    <div className="empty-cart">
       <ShoppingBag />
       <h3>Your shopping bag is empty</h3>
       <Link href="/">
@@ -61,15 +60,15 @@ const Cart = () => {
   const itemsCart =
     cartItems.length >= 1 &&
     cartItems.map((item) => (
-      <div className={styles.product} key={item._id}>
-        <img src={urlFor(item.image[0])} />
-        <div className={styles.desc}>
-          <div className={`${styles.flex} + ${styles.top}`}>
+      <div className="product" key={item._id}>
+        <img src={urlFor(item.image[0])} className="cart-product-image" />
+        <div className="item-desc">
+          <div className="flex top">
             <h5>{item.name}</h5>
             <h4>{item.price}</h4>
           </div>
 
-          <div className={`${styles.flex} + ${styles.bottom}`}>
+          <div className="flex bottom">
             <div>
               <p className="quantity-desc">
                 <span
@@ -89,7 +88,7 @@ const Cart = () => {
             </div>
 
             <button
-              className={styles["remove-item"]}
+              className="remove-item"
               onClick={onRemoveFromCart.bind(null, item)}
             >
               <RemoveItemButton />
@@ -100,23 +99,21 @@ const Cart = () => {
     ));
 
   return (
-    <div className={styles["cart-wrapper"]}>
-      <div className={styles["cart-container"]}>
-        <button className={styles["cart-heading"]} onClick={showCartHandler}>
+    <div className="cart-wrapper">
+      <div className="cart-container">
+        <button className="cart-heading" onClick={showCartHandler}>
           <Close />
-          <span className={styles.heading}>Your Cart</span>
-          <span className={styles["cart-num__items"]}>
-            ({totalItems} items)
-          </span>
+          <span className="heading">Your Cart</span>
+          <span className="cart-num__items">({totalItems} items)</span>
         </button>
 
         {emptyCart}
 
-        <div className={styles["product-container"]}>{itemsCart}</div>
+        <div className="product-container">{itemsCart}</div>
 
         {cartItems.length >= 1 && (
-          <div className={styles["cart-bottom"]}>
-            <div className={styles.total}>
+          <div className="cart-bottom">
+            <div className="total">
               <h3>Subtotal:</h3>
               <h3>${totalAmount}</h3>
             </div>

@@ -1,4 +1,3 @@
-import styles from "./ProductDetails.module.css";
 import { urlFor } from "../../../lib/client";
 import { useContext, useState } from "react";
 import Star from "./Stars";
@@ -23,49 +22,45 @@ const ProductDetails = (props) => {
   const buyNowHandler = (item, qty) => {
     onAddToCart(item, qty);
 
-    showCartHandler()
+    showCartHandler();
   };
 
   return (
     <div>
-      <div className={styles["product-detail-container"]}>
+      <div className="product-detail-container">
         <div>
-          <div>
+          <div className="image-container">
             <img
               src={urlFor(image && image[index])}
-              className={styles["product-detail-image"]}
+              className="product-detail-image"
             />
           </div>
-
-          <div className={styles["small-images-container"]}>
-            {image &&
-              image.map((img, i) => (
-                <img
-                  key={i}
-                  src={urlFor(img)}
-                  className={
-                    index === i
-                      ? `${styles["small-image"]} ${styles["selected-image"]}`
-                      : `${styles["small-image"]}`
-                  }
-                  onMouseEnter={() => setIndex(i)}
-                />
-              ))}
+          <div className="small-images-container">
+            {image?.map((item, i) => (
+              <img
+                key={i}
+                src={urlFor(item)}
+                className={
+                  i === index ? "small-image selected-image" : "small-image"
+                }
+                onMouseEnter={() => setIndex(i)}
+              />
+            ))}
           </div>
         </div>
 
-        <div className={styles["product-detail-desc"]}>
+        <div className="product-detail-desc">
           <h1>{name}</h1>
-          <div className={styles.reviews}>
+          <div className="reviews">
             <Star />
             <p>(20)</p>
           </div>
 
           <h4>Details: </h4>
           <p>{details}</p>
-          <p className={styles.price}>${price}</p>
+          <p className="price">${price}</p>
 
-          <div className={styles.quantity}>
+          <div className="quantity">
             <h3>Quantity:</h3>
             <p className="quantity-desc">
               <span className="minus" onClick={decreaseQuantityHandler}>
@@ -78,15 +73,15 @@ const ProductDetails = (props) => {
             </p>
           </div>
 
-          <div className={styles.buttons}>
+          <div className="buttons">
             <button
-              className={styles["add-to-cart"]}
+              className="add-to-cart"
               onClick={onAddToCart.bind(null, props.product, itemQty)}
             >
               Add to Cart
             </button>
             <button
-              className={styles["buy-now"]}
+              className="buy-now"
               onClick={buyNowHandler.bind(null, props.product, itemQty)}
             >
               Buy Now

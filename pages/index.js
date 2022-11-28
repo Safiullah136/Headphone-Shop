@@ -7,11 +7,11 @@ import { client } from "../lib/client";
 const HomePage = (props) => {
   const { bannerData, products } = props;
   return (
-    <>
-      <HeroBanner bannerData={bannerData && bannerData[0]} />
+    <div>
+      <HeroBanner bannerData={bannerData.length && bannerData[0]} />
       <Products products={products} />
       <FooterBanner bannerData={bannerData && bannerData[0]} />
-    </>
+    </div>
   );
 };
 

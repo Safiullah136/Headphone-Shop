@@ -1,4 +1,3 @@
-import styles from "./HeroBanner.module.css";
 import { urlFor } from "../../lib/client";
 import Link from "next/link";
 
@@ -7,22 +6,22 @@ const HeroBanner = (props) => {
     props.bannerData;
 
   return (
-    <div className={styles.banner}>
+    <div className="hero-banner-container">
       <div>
-        <p className={styles["beats-solo"]}>{smallText}</p>
+        <p className="beats-solo">{smallText}</p>
         <h3>{midText}</h3>
         <h1>{largeText1}</h1>
         <img
           src={urlFor(image)}
           alt="headphones"
-          className={styles["hero-banner-image"]}
+          className="hero-banner-image"
         />
 
         <div>
-          <Link href={`/products/${product}`}>
+          <Link href={`/product/${product}`}>
             <button type="button">{buttonText}</button>
           </Link>
-          <div className={styles.desc}>
+          <div className="desc">
             <h5>Description</h5>
             <p>{desc}</p>
           </div>
