@@ -48,10 +48,10 @@ const cartReducer = (state, action) => {
     const updatedItem = {
       ...clickedItem,
       quantity: isPlus
-        ? clickedItem.quantity + 0.5
+        ? clickedItem.quantity + 1
         : isTrue
         ? 1
-        : clickedItem.quantity - 0.5,
+        : clickedItem.quantity - 1,
     };
     const totalAmount = isTrue
       ? state.totalAmount
